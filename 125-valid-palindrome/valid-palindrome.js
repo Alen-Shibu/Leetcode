@@ -3,10 +3,7 @@
  * @return {boolean}
  */
  var isAlphaNum = function(ch){
-    const code = ch.charCodeAt(0) 
-    return (code >= 'a'.charCodeAt(0) && code <= 'z'.charCodeAt(0)
-    || code >= 'A'.charCodeAt(0) && code <= 'Z'.charCodeAt(0)
-    || code >= '0'.charCodeAt(0) && code <= '9'.charCodeAt(0))
+    return /^[a-z0-9]$/i.test(ch)
 }
 
 var isPalindrome = function(s) {
