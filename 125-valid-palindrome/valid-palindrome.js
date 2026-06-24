@@ -2,25 +2,30 @@
  * @param {string} s
  * @return {boolean}
  */
- var isAlphaNum = function(ch){
-    return /^[a-z0-9]$/i.test(ch)
-}
 
+ var isAlphaNumeric = function(ch){
+    return /^[a-z0-9]$/i.test(ch)
+ }
 var isPalindrome = function(s) {
-    let l = 0;
+    let l=0;
     let r = s.length-1;
 
     while(l<r){
-        while(l<r && !isAlphaNum(s[l])){
+
+        while(l<r && !isAlphaNumeric(s[l])){
             l++;
         }
-        while(l<r && !isAlphaNum(s[r])){
+
+        while(l<r && !isAlphaNumeric(s[r])){
             r--;
         }
-        if(s[l].toUpperCase() !== s[r].toUpperCase()) return false;
+        
+        if(!(s[l].toLowerCase() === s[r].toLowerCase())){
+            return false
+        }
         l++;
         r--;
     }
-    return true;
-};
 
+    return true
+};
