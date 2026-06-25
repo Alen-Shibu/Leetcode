@@ -7,8 +7,8 @@ var isValidSudoku = function(board) {
     let colMap = new Map();
     let gridMap = new Map();
     
-    for(let row = 0;row<9;row++){
-        for(let col = 0;col<9;col++){
+    for(let [row,rowData] of board.entries()){
+        for(let [col,colData] of rowData.entries()){
             const value = board[row][col];
             if(value === '.') continue;
             if(!rowMap.has(row)) rowMap.set(row,new Set())
