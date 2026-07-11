@@ -13,8 +13,9 @@ var isAnagram = function(s, t) {
         a2[t.charCodeAt(i) - 97]++
     };
 
-    const i1 = a1.join('#')
-    const i2 = a2.join('#')
+    for(let i=0;i<26;i++){
+        if(a1[i] !== a2[i]) return false;
+    }
 
-    return i1 === i2;
+    return true
 };
