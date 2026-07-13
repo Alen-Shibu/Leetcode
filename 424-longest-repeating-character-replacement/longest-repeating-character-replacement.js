@@ -4,25 +4,22 @@
  * @return {number}
  */
 var characterReplacement = function(s, k) {
-    let res = 0;
-    let charSet = new Set(s);
+    let l = 0;
+    let max_freq = 0;
+    let max_window = 0;
+    const freq = {}
 
-    for(let c of charSet){
-        let l = 0;
-        let count = 0;
+    for(let r=0;r<s.length;r++){
+        freq[s[r]] = (freq[s[r]] || 0) + 1;
+        max_freq = Math.max(freq[s[r]],max_freq)
 
-        for(let r = 0;r<s.length;r++){
-            if(s[r]===c){
-                count++;
-            }
-
-            while(r-l+1 - count > k){
-                if(s[l]===c) count--;
-                l++;
-            }
-            res = Math.max(res,r-l+1)
+        if(r-l+1 - max_freq > k){
+            freq[s[l]] = freq[s[l]] - 1;
+            l++;
         }
-    }
-    return res;
 
+        max_window = Math.max(max_window,r-l+1)
+    }
+
+    return max_window;
 };
