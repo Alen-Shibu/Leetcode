@@ -4,18 +4,12 @@ class Solution:
             return False
         
         s_words = {}
-        for i in s:
-            if i not in s_words:
-                s_words[i] = 1
-            else:
-                s_words[i] += 1 
+        for char in s:
+            s_words[char] = s_words.get(char,0) + 1
 
         t_words = {}
-        for i in t:
-            if i not in t_words:
-                t_words[i] = 1
-            else:
-                t_words[i] += 1 
+        for char in t:
+            t_words[char] = t_words.get(char,0) + 1
 
         return s_words == t_words
         
